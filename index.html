@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>ToDoList</title>
+</head>
+<body>
+    <div class="todo-block">
+        <div class="header-main">
+            <h1 class="title">ToDo</h1>
+            <div class="data-items">
+                <h3 class="subtitle">Сегодня</h3>
+                <input class="data" type="date" id="dateField">
+            </div>
+        </div>
+
+        <form class="todo-form" method="post">
+            <label class="input-label" for="todo-input"></label>
+            <input class="todo-input" type="text" id="todo-input" placeholder="Добавьте новую задачу" required> <!--обязательно для заполнения-->
+            <button class="todo-priority important" type="button">Важная задача</button>
+            <button class="todo-add" type="submit">+</button>
+        </form>
+
+        <div class="form__label-box">
+            <ol class="todo-list">
+                <label>
+                    <li>
+                        <input class="check-box" type="checkbox">
+                        <span class="check-style"></span> 
+                        Сходить на пары
+                    </li>
+                </label>
+                <label>
+                    <li class="important"> 
+                        <input class="check-box" type="checkbox">
+                        <span class="check-style"></span> 
+                        Покодить
+                    </li>
+                </label> 
+            </ol>
+        </div>
+    </div>
+
+    <script src="script/main.js"></script>
+    <script src="script/number.js"></script>
+</body>
+</html>
