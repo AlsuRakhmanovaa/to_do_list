@@ -1,1 +1,0 @@
-document.getElementById('dateField').valueAsDate = new Date();

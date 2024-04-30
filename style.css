@@ -10,18 +10,18 @@ body {
     justify-content: center;
 }
 
-.todo-block{
+.todo{
     background-color: #fff;
     box-shadow: 0 0 3px #bebec6;
 }
 
-.header-main{
+.todo__head-main{
     display: flex;
     border-bottom: 1.5px solid #FFECD8;
     justify-content: space-between;
 }
 
-.title{
+.todo__title{
     margin: 0;
     padding: 20px 16px 22px;
     text-align: left;
@@ -32,7 +32,7 @@ body {
     color: #3C3C3E;
 }
 
-.subtitle{
+.todo__subtitle{
     font-size: 14px;
     font-weight: 800;
     color: #3C3C3E;
@@ -42,7 +42,7 @@ body {
     margin-right: 30px;
 }
 
-.data{
+.todo__data{
     margin-right: 10px;
     border: none;
     font-size: 12px;
@@ -51,18 +51,18 @@ body {
     color: #3C3C3E;
 }
 
-.todo-form{
+.form{
     padding: 20px 10px;
     display: flex;
 }
 
-.input-label{
+.form__input-label{
     margin-top: 10px;
     font-size: 12px;
     line-height: 12px;
 }
 
-.todo-input{
+.form__input{
     padding: 10px 12px;
     font-size: 14px;
     line-height: 20px;
@@ -72,11 +72,11 @@ body {
     color: #232323;
 }
 
-.todo-input::placeholder{
+.form__input::placeholder{
     color: #C4C4C4;
 }
 
-.todo-form button{
+.form button{
     margin-right: auto;
     font-size: 12px;
     line-height: 16px;
@@ -88,14 +88,14 @@ body {
 
 }
 
-.todo-priority{
+.form--priority{
     position: relative;
     color: #fff;
     margin-left: 10px;
     background-color: #4C53F1;
 }
 
-.todo-priority::before{
+.form--priority::before{
     position: absolute;
     content: "";
     top: 11px;
@@ -104,11 +104,11 @@ body {
     height: 16px;
 }
 
-.todo-priority.important{
+.form--priority.important{
     font-weight: 500;
 }
 
-.todo-add{
+.form__add{
     margin-bottom: 0;
     margin-left: 10px;
     padding: 12px 20px;
@@ -118,29 +118,32 @@ body {
     text-align: center;
 }
 
-.todo-input:focus,
-.todo-form button:focus{
+.form__input:focus {
     outline: 2px solid #4C53F1;
 }
 
-.todo-priority:hover{
+.form button:focus{
+    outline: 2px solid #4C53F1;
+}
+
+.form--priority:hover{
     background-color: #447aee;
 }
 
-.todo-priority:active{
+.form--priority:active{
     background-color: #4C53F1;
     opacity: 0.5;
 }
 
-.todo-add:hover {
+.form__add:hover {
     background-color: #447aee;
 }
   
-.todo-add:active {
+.form__add:active {
     opacity: 0.5;
 }
 
-label{
+.form__check{
     margin-bottom: 5px;
     display: block;
 }  
@@ -179,13 +182,13 @@ label{
     box-shadow: 0 0 0 2px #202020;
 }
 
-.todo-list{
+.form__list{
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.todo-list li{
+.form__list li{
     margin-top: 1px;
     padding: 7px 16px;
     color: #3C3C3E;
@@ -195,7 +198,7 @@ label{
     
 }
 
-.todo-list .important{
+.form__list .important{
     font-weight: 700;
     margin-top: 1px;
     padding: 7px 16px;
@@ -204,3 +207,4 @@ label{
     text-align: left;
     margin-left: 20px;
 }
+

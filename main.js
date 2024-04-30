@@ -1,7 +1,20 @@
-let list = document.querySelector('.todo-list');
-let input = document.querySelector('.todo-input');
-let form = document.querySelector('.todo-form');
-let priority = document.querySelector('.todo-priority');
+let listElem = document.querySelector('.form__list');
+let input = document.querySelector('.form__input');
+let form = document.querySelector('.form');
+let priority = document.querySelector('.form--priority');
+
+
+let dateField = document.getElementById('dateField');
+
+dateField.valueAsDate = new Date();
+
+
+function clearTaskList() {
+  listElem.innerHTML = ''; 
+}
+
+dateField.addEventListener('input', clearTaskList);
+
 
 priority.onclick = function () {
   priority.classList.toggle('important');
@@ -35,6 +48,8 @@ form.onsubmit = function (evt) {
       li.classList.add('important');
   }
 
-  list.appendChild(label); 
+  listElem.appendChild(label); 
   input.value = '';
 };
+
+

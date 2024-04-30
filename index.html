@@ -10,32 +10,32 @@
     <title>ToDoList</title>
 </head>
 <body>
-    <div class="todo-block">
-        <div class="header-main">
-            <h1 class="title">ToDo</h1>
-            <div class="data-items">
-                <h3 class="subtitle">Сегодня</h3>
-                <input class="data" type="date" id="dateField">
+    <div class="todo">
+        <div class="todo__head-main">
+            <h1 class="todo__title">ToDo</h1>
+            <div class="todo__data-items">
+                <h3 class="todo__subtitle">Сегодня</h3>
+                <input class="todo__data" type="date" id="dateField">
             </div>
         </div>
 
-        <form class="todo-form" method="post">
-            <label class="input-label" for="todo-input"></label>
-            <input class="todo-input" type="text" id="todo-input" placeholder="Добавьте новую задачу" required> <!--обязательно для заполнения-->
-            <button class="todo-priority important" type="button">Важная задача</button>
-            <button class="todo-add" type="submit">+</button>
+        <form class="form" method="post">
+            <label class="form__input-label" for="form__input"></label>
+            <input class="form__input" type="text" id="form__input" placeholder="Добавьте новую задачу" required> <!--обязательно для заполнения-->
+            <button class="form--priority important" type="button">Важная задача</button>
+            <button class="form__add" type="submit">+</button>
         </form>
 
         <div class="form__label-box">
-            <ol class="todo-list">
-                <label>
+            <ol class="form__list">
+                <label class="form__check">
                     <li>
                         <input class="check-box" type="checkbox">
                         <span class="check-style"></span> 
                         Сходить на пары
                     </li>
                 </label>
-                <label>
+                <label class="form__check">
                     <li class="important"> 
                         <input class="check-box" type="checkbox">
                         <span class="check-style"></span> 
@@ -46,7 +46,6 @@
         </div>
     </div>
 
-    <script src="script/main.js"></script>
-    <script src="script/number.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
