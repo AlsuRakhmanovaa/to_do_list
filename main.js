@@ -42,14 +42,19 @@ form.onsubmit = function (evt) {
   span.classList.add('todo__check-style');
   li.appendChild(checkbox); 
   li.appendChild(span);
+
   
-  let textNode = document.createTextNode(input.value);
-  li.appendChild(textNode); 
-  
+  let div = document.createElement('div'); 
+  div.textContent = input.value; 
+  div.classList.add('todo__text');
+
+  li.appendChild(div); 
+
+
   let label = document.createElement('label');
   label.appendChild(li);
 
-  button.onclick = function() { // Обработчик события для кнопки
+  button.onclick = function() { 
     label.remove(); 
   };
 
