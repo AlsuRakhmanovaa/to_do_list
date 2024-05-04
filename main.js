@@ -20,7 +20,7 @@ function clearTaskList() {
 
   //проверяем, есть ли задачи для выбранной даты
   if (listByDate.has(selectedDate)) {
-    let tasks = listByDate.get(selectedDate); //получаем список задач для выбранной даты
+    let tasks = listByDate.get(selectedDate); //получаем список задач для выбранной даты. get() используем для получения значения по ключу (дата) из Map.
     tasks.forEach(task => listElem.appendChild(task)); //добавляем задачи на страницу
   }
 }
@@ -76,10 +76,10 @@ form.onsubmit = function (evt) {
   
   //добавляем задачу в список задач по соответствующей дате
   if (!listByDate.has(selectedDate)) {
-    listByDate.set(selectedDate, [label]); //если для данной даты еще нет списка, то создаем новый
+    listByDate.set(selectedDate, [label]); //если для данной даты еще нет списка, то создаем новый. set используем для добавления нового элемента в коллекцию Map
   } else {
     let tasks = listByDate.get(selectedDate);
-    tasks.push(label); //если список уже есть, то добавляем задачу в него
+    tasks.push(label); //если список уже есть, то добавляем задачу в него. push для добавления нового элемент в конeц массива и изменяем его
     listByDate.set(selectedDate, tasks);
   }
 
@@ -90,4 +90,17 @@ form.onsubmit = function (evt) {
 
   listElem.appendChild(label); //добавляем задачу на страницу
   input.value = ''; //очищаем поле ввода задачи
+
+  function removeFromListByDate(taskLabel, date) {
+    if (listByDate.has(date)) { //проверяем, существует ли в listByDate список задач для указанной даты 
+        let tasks = listByDate.get(date); //если список существует, то мы извлекаем его
+        tasks = tasks.filter(task => task !== taskLabel); //с помощью фильтра создаем новый массив, исключив из него ту задачу, кот. хотим удалить
+        listByDate.set(date, tasks); //обновляем список задач для даты
+    }
+  }
+
+  button.onclick = function() { 
+    label.remove(); 
+    removeFromListByDate(label, selectedDate); //предотвращаем повторное появление удаленной задачи
+  }
 }
