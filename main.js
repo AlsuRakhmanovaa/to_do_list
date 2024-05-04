@@ -2,17 +2,29 @@ let listElem = document.querySelector('.todo__list');
 let input = document.querySelector('.form__input');
 let form = document.querySelector('.form');
 let priority = document.querySelector('.form--priority');
+let listByDate = new Map(); //объект для хранения списка задач по датам. хранение коллекции ключ-значение
 
-
+//получаем сссылку на элемент из даты
 let dateField = document.getElementById('dateField');
-
+// устанавливаем текущую дату в поле ввода даты
 dateField.valueAsDate = new Date();
 
-
+//функция для очистки списка задач
 function clearTaskList() {
-  listElem.innerHTML = ''; 
-}
+  listElem.innerHTML = ''; //очищаем текущий список задач
+  let selectedDate = dateField.valueAsDate.toISOString().split('T')[0]; //метод, который возвращает строковое представление даты и времени в формате ГГГГ-ММ--ДД T ч:м:с:мс
+  //с помощью toISOString() преобразую текущую дату и время объекта Date в строку
+  //split('T') разбивает эту строку на массив, используя символ Т как разделитесь, после разделения получается массив, где первый элемент содержит дату, а второй время
+  //[0] извлекает из этого массива первый элемент, который содержит дату в формате ГГГГ-ММ-ДД
+  //сделали мы так для того, чтобы использовать эту строку в качестве ключа при сохранении задач в map, чтобы различать задачи по датам
 
+  //проверяем, есть ли задачи для выбранной даты
+  if (listByDate.has(selectedDate)) {
+    let tasks = listByDate.get(selectedDate); //получаем список задач для выбранной даты
+    tasks.forEach(task => listElem.appendChild(task)); //добавляем задачи на страницу
+  }
+}
+// Добавляем обработчик события изменения значения в поле ввода даты
 dateField.addEventListener('input', clearTaskList);
 
 
@@ -27,6 +39,8 @@ priority.onclick = function () {
 
 form.onsubmit = function (evt) {
   evt.preventDefault();
+
+  let selectedDate = dateField.valueAsDate.toISOString().split('T')[0]; //получаем список задач для выбранной даты
 
   let li = document.createElement('li');
   let span = document.createElement('span');
@@ -59,12 +73,21 @@ form.onsubmit = function (evt) {
   };
 
   li.appendChild(button); 
+  
+  //добавляем задачу в список задач по соответствующей дате
+  if (!listByDate.has(selectedDate)) {
+    listByDate.set(selectedDate, [label]); //если для данной даты еще нет списка, то создаем новый
+  } else {
+    let tasks = listByDate.get(selectedDate);
+    tasks.push(label); //если список уже есть, то добавляем задачу в него
+    listByDate.set(selectedDate, tasks);
+  }
 
   
   if (priority.classList.contains('important')) {
       li.classList.add('important');
   }
 
-  listElem.appendChild(label); 
-  input.value = '';
+  listElem.appendChild(label); //добавляем задачу на страницу
+  input.value = ''; //очищаем поле ввода задачи
 }
