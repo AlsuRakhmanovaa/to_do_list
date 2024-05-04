@@ -86,19 +86,18 @@ body {
 .form button{
     margin-right: auto;
     font-size: 12px;
-    line-height: 16px;
+    /* line-height: 16px; */
     letter-spacing: 0.5px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     max-width: 100px;
-
 }
 
 .form--priority{
     position: relative;
     color: #fff;
-    margin-left: 10px;
+    margin-left: 15px;
     background-color: #4C53F1;
 }
 
@@ -199,7 +198,7 @@ body {
     color: #3C3C3E;
     font-size: 15px;
     text-align: left; 
-    margin-left: 20px;
+    margin-left: 15px;
     word-break: break-word; 
 }
 
@@ -215,7 +214,7 @@ body {
     font-weight: 700;
     padding: 7px 16px;
     font-size: 15px;
-    margin-left: 20px;
+    margin-left: 15px;
     word-break: break-word; 
 }
 
