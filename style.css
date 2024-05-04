@@ -8,6 +8,7 @@ body {
     box-sizing: border-box;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .todo{
@@ -15,7 +16,11 @@ body {
     box-shadow: 0 0 3px #bebec6;
 }
 
-.todo__head-main{
+.container {
+    width: 400px;
+}
+
+.todo__header{
     display: flex;
     border-bottom: 1.5px solid #FFECD8;
     justify-content: space-between;
@@ -42,7 +47,7 @@ body {
     margin-right: 30px;
 }
 
-.todo__data{
+.todo__input-date{
     margin-right: 10px;
     border: none;
     font-size: 12px;
@@ -54,12 +59,14 @@ body {
 .form{
     padding: 20px 10px;
     display: flex;
+    
 }
 
 .form__input-label{
     margin-top: 10px;
     font-size: 12px;
     line-height: 12px;
+    
 }
 
 .form__input{
@@ -143,11 +150,7 @@ body {
     opacity: 0.5;
 }
 
-.form__check{
-    display: block;
-}  
-
-.check-box{  
+.todo__checkbox{  
     position: absolute;
     width: 1px;
     height: 1px;
@@ -156,7 +159,7 @@ body {
     padding-left: 20px;
 } 
 
-.check-style{     
+.todo__check-style{     
     position: absolute;
     width: 15px;
     height: 15px;
@@ -166,7 +169,7 @@ body {
 }  
 
 /* селектор + обращаемся к соседу */
-.check-box:checked + .check-style::before{ 
+.todo__checkbox:checked + .todo__check-style::before{ 
     content: "";
     width: 8px;
     height: 8px;
@@ -177,33 +180,58 @@ body {
     transform: translate(-50%, -50%);
 } 
 
- .check-box:focus + .check-style{
+.todo__checkbox:focus + .todo__check-style{
     box-shadow: 0 0 0 2px #202020;
 }
 
-.form__list{
+.todo__list{
     margin: 0;
     padding: 0;
-    list-style: none;
+    list-style: none;    
+    display: flex;
+    flex-direction: column;
 }
 
-.form__list li{
+.todo__list li{
+    position: relative;
     margin-top: 1px;
     padding: 7px 16px;
     color: #3C3C3E;
     font-size: 15px;
     text-align: left; 
     margin-left: 20px;
-    
+    word-break: break-word; 
 }
 
-.form__list .important{
+.todo__list .delete-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0; /* Прижимаем кнопку к правому краю */
+    margin-right: 22px;
+}
+
+.important{
     font-weight: 700;
-    margin-top: 1px;
     padding: 7px 16px;
-    color: #3C3C3E;
     font-size: 15px;
-    text-align: left;
     margin-left: 20px;
+    word-break: break-word; 
 }
 
+.delete-button {
+    background-color: #4C53F1;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #447aee;
+}
+
+.delete-button:active {
+    background-color: #4C53F1;
+    opacity: 0.5;
+}

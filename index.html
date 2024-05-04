@@ -11,30 +11,47 @@
 </head>
 <body>
     <div class="todo">
-        <div class="todo__head-main">
-            <h1 class="todo__title">ToDo</h1>
-            <div class="todo__data-items">
-                <h3 class="todo__subtitle">Сегодня</h3>
-                <input class="todo__data" type="date" id="dateField">
+        <div class="container">
+            <div class="todo__header">
+                <h1 class="todo__title">ToDo</h1>
+                <div class="todo__date">
+                    <h3 class="todo__subtitle">Сегодня</h3>
+                    <input class="todo__input-date" type="date" id="dateField">
+                </div>
             </div>
-        </div>
 
-        <form class="form" method="post">
-            <label class="form__input-label" for="form__input"></label>
-            <input class="form__input" type="text" id="form__input" placeholder="Добавьте новую задачу" required> <!--обязательно для заполнения-->
-            <button class="form--priority important" type="button">Важная задача</button>
-            <button class="form__add" type="submit">+</button>
-        </form>
+            <form class="form" method="post">
+                <label class="form__input-label" for="form__input"></label>
+                <input class="form__input" type="text" id="form__input" placeholder="Добавьте новую задачу" required> <!--обязательно для заполнения-->
+                <button class="form--priority important" type="button">Важная задача</button>
+                <button class="form__add" type="submit">+</button>
+            </form>
 
-        <div class="form__label-box">
-            <label class="form__check">
-                <ol class="form__list">
+            <div class="form__label-box modal">
+                <ul class="todo__list">
                     <li>
-                        <input class="check-box" type="checkbox">
-                        <span class="check-style"></span> 
-                        Сходить на пары
+                        <label for="" class="todo__task">
+                            <input class="todo__checkbox" type="checkbox">
+                            <span class="todo__check-style"></span>
+                            Сходить на пары
+                        </label>
                     </li>
-            </label>
+                    <li class="important">
+                        <label for="" class="todo__task">
+                            <input class="todo__checkbox" type="checkbox">
+                            <span class="todo__check-style"></span>
+                            Покодить
+                        </label>
+                    </li>
+                </ul>
+                <!-- <label class="form__check">
+                    <ol class="form__list">
+                        <li>
+                            <input class="check-box" type="checkbox">
+                            <span class="check-style"></span> 
+                            Сходить на пары
+                        </li>
+                </label>
                 <label class="form__check">
                     <li class="important"> 
                         <input class="check-box" type="checkbox">
@@ -42,7 +59,8 @@
                         Покодить
                     </li>
                 </label> 
-            </ol>
+                    </ol> -->
+            </div>
         </div>
     </div>
 
